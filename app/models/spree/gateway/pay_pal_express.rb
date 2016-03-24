@@ -118,10 +118,12 @@ module Spree
       response = provider.
         do_capture(
           provider.build_do_capture(
-            amount: amount_cents / 100.0,
+            amount: {
+              currencyID: currency,
+              value: amount_cents
+            },
             authorization_id: authorization,
-            completetype: "Complete",
-            currencycode: options[:currency]))
+            complete_type: "Complete"))
 
       build_response(response, capture_transaction_id(response))
     end
