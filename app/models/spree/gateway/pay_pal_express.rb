@@ -58,7 +58,7 @@ module Spree
 
     def credit(credit_cents, transaction_id, originator:, **_options)
       payment = originator.payment
-      amount = credit_cents / 100.0
+      amount = credit_cents
 
       refund_type = payment.amount == amount.to_f ? "Full" : "Partial"
 
