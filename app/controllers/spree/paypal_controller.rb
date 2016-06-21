@@ -104,7 +104,8 @@ module Spree
         LandingPage: payment_method.preferred_landing_page.present? ? payment_method.preferred_landing_page : "Billing",
         cppheaderimage: payment_method.preferred_logourl.present? ? payment_method.preferred_logourl : "",
         NoShipping: 1,
-        PaymentDetails: [payment_details(items)]
+        PaymentDetails: [payment_details(items)],
+        LocaleCode: 'en_US'
       }}
     end
 
