@@ -190,5 +190,18 @@ module Spree
     def sandbox?
       self.preferred_server == "sandbox"
     end
+
+    class VoidResponse
+      def success?
+        true
+      end
+
+      def authorization
+      end
+    end
+
+    def cancel(argument)
+      VoidResponse.new
+    end
   end
 end
